@@ -1,3 +1,5 @@
+# Please enable issues!!! (don't merge this PR)
+
 ![CI Windows Release](https://github.com/Fenrirthviti/obs-virtual-cam/workflows/CI%20Windows%20Release/badge.svg) ![CI Windows On-Push](https://github.com/Fenrirthviti/obs-virtual-cam/workflows/CI%20Windows%20On-Push/badge.svg)
 
 # OBS-VirtualCam
