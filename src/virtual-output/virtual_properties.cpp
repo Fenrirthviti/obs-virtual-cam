@@ -22,7 +22,7 @@ VirtualProperties::VirtualProperties(QWidget *parent) :
 	connect(ui->checkBox_keepratio, SIGNAL(stateChanged(int)), this,
 		SLOT(onClickKeepAspectRatio()));
 
-	config_t* config = obs_frontend_get_global_config();
+	config_t* config = obs_frontend_get_profile_config();
 	config_set_default_bool(config, "VirtualOutput", "AutoStart", false);
 	config_set_default_bool(config, "VirtualOutput", "HoriFlip", false);
 	config_set_default_bool(config, "VirtualOutput", "KeepRatio", false);
@@ -140,15 +140,17 @@ void VirtualProperties::closeEvent(QCloseEvent *event)
 
 void VirtualProperties::SaveSetting()
 {
-	config_t* config = obs_frontend_get_global_config();
+	config_t* config = obs_frontend_get_profile_config();
 	if (config) {
 		bool autostart = ui->checkBox_auto->isChecked();
 		bool hori_flip = ui->checkBox_horiflip->isChecked();
 		bool keep_ratio = ui->checkBox_keepratio->isChecked();
 		int delay = ui->horizontalSlider->value();
+		int target = ui->comboBox_target->currentIndex();
 		config_set_bool(config, "VirtualOutput", "AutoStart", autostart);
 		config_set_bool(config, "VirtualOutput", "HoriFlip", hori_flip);
 		config_set_bool(config, "VirtualOutput", "KeepRatio", keep_ratio);
 		config_set_int(config, "VirtualOutput", "OutDelay", delay);
+		config_set_int(config, "VirtualOutput", "Target", target);
 	}
 }
