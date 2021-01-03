@@ -18,7 +18,7 @@ jobs:
       CMAKE_SYSTEM_VERSION: "10.0"
     steps:
       - name: 'Add msbuild to PATH'
-        uses: microsoft/setup-msbuild@v1.0.0
+        uses: microsoft/setup-msbuild@v1.0.2
       - name: 'Checkout'
         uses: actions/checkout@v2
         with:
@@ -35,9 +35,9 @@ jobs:
         working-directory: ${{ github.workspace }}/obs-studio
         run: |
           git fetch --prune --unshallow
-          echo ::set-env name=OBS_GIT_BRANCH::$(git rev-parse --abbrev-ref HEAD)
-          echo ::set-env name=OBS_GIT_HASH::$(git rev-parse --short HEAD)
-          echo ::set-env name=OBS_GIT_TAG::$(git describe --tags --abbrev=0)
+          echo "OBS_GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+          echo "OBS_GIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "OBS_GIT_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
       - name: 'Checkout last OBS-Studio release (${{ env.OBS_GIT_TAG }})'
         shell: bash
         working-directory: ${{ github.workspace }}/obs-studio
@@ -49,9 +49,9 @@ jobs:
         working-directory: ${{ github.workspace }}/obs-virtual-cam
         run: |
           git fetch --prune --unshallow
-          echo ::set-env name=GIT_BRANCH::${{ github.event.pull_request.head.ref }}
-          echo ::set-env name=GIT_HASH::$(git rev-parse --short HEAD)
-          echo ::set-env name=GIT_TAG::$(git describe --tags --abbrev=0)
+          echo "GIT_BRANCH=${{ github.event.pull_request.head.ref }}" >> $GITHUB_ENV
+          echo "GIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          echo "GIT_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
       - name: 'Install prerequisite: QT'
         run: |
           curl -kLO https://cdn-fastly.obsproject.com/downloads/Qt_${{ env.QT_VERSION }}.7z -f --retry 5 -C -
@@ -128,7 +128,7 @@ jobs:
         shell: bash
         run: |
           FILENAME="obs-virtualcam-${{ env.GIT_TAG }}-Windows"
-          echo "::set-env name=WIN_FILENAME::$FILENAME"
+          echo "WIN_FILENAME=$FILENAME" >> $GITHUB_ENV
       - name: 'Package obs-virtual-cam'
         working-directory: ${{ github.workspace }}/obs-virtual-cam
         run: |
@@ -182,7 +182,7 @@ jobs:
         shell: bash
         id: get_version
         run: |
-          echo ::set-env name=TAG_VERSION::${GITHUB_REF/refs\/tags\//}
+          echo "TAG_VERSION=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
       - name: 'Create Release'
         id: create_release
         uses: actions/create-release@v1
