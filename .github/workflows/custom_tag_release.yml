@@ -1,11 +1,11 @@
-name: 'CI Windows Release'
+name: 'CI Windows Release Custom'
 
 on:
   push:
     paths-ignore:
       - 'docs/**'
     tags:
-      - '[23].[0-9]+.[0-9]+.'
+      - '[23].[0-9]+.[0-9]+.[0-9]+.'
 
 jobs:
   windows:
