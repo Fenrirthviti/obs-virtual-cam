@@ -71,7 +71,7 @@ const AMOVIESETUP_PIN AMSPinA =
 const AMOVIESETUP_FILTER AMSFilterV =
 {
 	&CLSID_OBS_VirtualV,  
-	L"OBS Virtual Cam",     
+	L"AICam0",     
 	MERIT_DO_NOT_USE,      
 	1,                     
 	&AMSPinV
@@ -80,7 +80,7 @@ const AMOVIESETUP_FILTER AMSFilterV =
 const AMOVIESETUP_FILTER AMSFilterV2 =
 {
 	&CLSID_OBS_VirtualV2,
-	L"OBS Virtual Cam2",
+	L"AICam1",
 	MERIT_DO_NOT_USE,
 	1,
 	&AMSPinV
@@ -89,7 +89,7 @@ const AMOVIESETUP_FILTER AMSFilterV2 =
 const AMOVIESETUP_FILTER AMSFilterV3 =
 {
 	&CLSID_OBS_VirtualV3,
-	L"OBS Virtual Cam3",
+	L"AICam2",
 	MERIT_DO_NOT_USE,
 	1,
 	&AMSPinV
@@ -98,7 +98,7 @@ const AMOVIESETUP_FILTER AMSFilterV3 =
 const AMOVIESETUP_FILTER AMSFilterV4 =
 {
 	&CLSID_OBS_VirtualV4,
-	L"OBS Virtual Cam4",
+	L"AICam3",
 	MERIT_DO_NOT_USE,
 	1,
 	&AMSPinV
