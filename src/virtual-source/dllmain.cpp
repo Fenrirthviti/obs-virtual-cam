@@ -71,7 +71,7 @@ const AMOVIESETUP_PIN AMSPinA =
 const AMOVIESETUP_FILTER AMSFilterV =
 {
 	&CLSID_OBS_VirtualV,  
-	L"AICam0",     
+	L"OBS Virtual Cam",
 	MERIT_DO_NOT_USE,      
 	1,                     
 	&AMSPinV
@@ -80,7 +80,7 @@ const AMOVIESETUP_FILTER AMSFilterV =
 const AMOVIESETUP_FILTER AMSFilterV2 =
 {
 	&CLSID_OBS_VirtualV2,
-	L"AICam1",
+	L"OBS Virtual Cam2",
 	MERIT_DO_NOT_USE,
 	1,
 	&AMSPinV
@@ -89,7 +89,7 @@ const AMOVIESETUP_FILTER AMSFilterV2 =
 const AMOVIESETUP_FILTER AMSFilterV3 =
 {
 	&CLSID_OBS_VirtualV3,
-	L"AICam2",
+	L"OBS Virtual Cam3",
 	MERIT_DO_NOT_USE,
 	1,
 	&AMSPinV
@@ -98,7 +98,7 @@ const AMOVIESETUP_FILTER AMSFilterV3 =
 const AMOVIESETUP_FILTER AMSFilterV4 =
 {
 	&CLSID_OBS_VirtualV4,
-	L"AICam3",
+	L"OBS Virtual Cam4",
 	MERIT_DO_NOT_USE,
 	1,
 	&AMSPinV
@@ -116,28 +116,28 @@ const AMOVIESETUP_FILTER AMSFilterA =
 CFactoryTemplate g_Templates[NUM_VIDEO_FILTERS + 1] =
 {
 	{
-		L"OBS-Camera",
+		L"AI-Camera",
 		&CLSID_OBS_VirtualV,
 		CreateInstance,
 		NULL,
 		&AMSFilterV
 	},
 	{
-		L"OBS-Camera2",
+		L"AI-Camera2",
 		&CLSID_OBS_VirtualV2,
 		CreateInstance2,
 		NULL,
 		&AMSFilterV2
 	},
 	{
-		L"OBS-Camera3",
+		L"AI-Camera3",
 		&CLSID_OBS_VirtualV3,
 		CreateInstance3,
 		NULL,
 		&AMSFilterV3
 	},
 	{
-		L"OBS-Camera4",
+		L"AI-Camera4",
 		&CLSID_OBS_VirtualV4,
 		CreateInstance4,
 		NULL,
